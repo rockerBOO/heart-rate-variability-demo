@@ -24,14 +24,10 @@ This demo was written by AI.
    # Install UV if not already installed
    curl -LsSf https://astral.sh/uv/install.sh | sh
 
-   # Create a virtual environment
-   uv venv
-
-   # Activate the virtual environment
-   source .venv/bin/activate  # Unix
-   .venv\Scripts\activate     # Windows
-
-   # Install project dependencies
+   # Install project dependencies (creates virtual environment automatically)
+   uv sync
+   
+   # Or install from requirements.txt
    uv pip install -r requirements.txt
    ```
 
@@ -106,17 +102,33 @@ uv run python main.py --method simulate --duration 300
 
 ## Example Jupyter Notebook
 
-See `heart_rate_demo.ipynb` for a comprehensive example of using the Heart Rate Monitor.
+See `heart_rate_demo.ipynb` for a comprehensive example of using the Heart Rate Monitor with HRV analysis.
 
 ### Running the Notebook
 
+#### Method 1: Quick Start (Recommended)
 ```bash
-# Install Jupyter if not already installed
-uv pip install jupyter
-
-# Launch Jupyter Notebook
-jupyter notebook heart_rate_demo.ipynb
+# Launch Jupyter with all project dependencies available
+uv run --with jupyter jupyter lab
 ```
+
+#### Method 2: Create Project Kernel (For persistent use)
+```bash
+# Add ipykernel to your project dependencies
+uv add ipykernel --dev
+
+# Create a dedicated kernel for this project
+uv run ipython kernel install --user --name=heartrate-hrv
+
+# Launch Jupyter and select the 'heartrate-hrv' kernel
+uv run --with jupyter jupyter lab
+```
+
+#### Method 3: VS Code Integration
+1. Install the Python and Jupyter extensions in VS Code
+2. Open the notebook file
+3. Select the UV project environment as the kernel
+4. Install packages in notebook cells using: `!uv add package-name`
 
 ## Dependencies
 
