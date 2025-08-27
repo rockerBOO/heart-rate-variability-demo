@@ -2,6 +2,8 @@
 
 A Python-based heart rate monitoring application with comprehensive Heart Rate Variability (HRV) analysis. Features multiple input methods: webcam, simulated data, and manual input.
 
+This demo was written by AI.
+
 ## Prerequisites
 
 - Python 3.8+
@@ -10,12 +12,14 @@ A Python-based heart rate monitoring application with comprehensive Heart Rate V
 ## Setup
 
 1. Clone the repository:
+
    ```bash
    git clone <your-repo-url>
    cd heartrate
    ```
 
 2. Install dependencies using UV:
+
    ```bash
    # Install UV if not already installed
    curl -LsSf https://astral.sh/uv/install.sh | sh
@@ -36,24 +40,31 @@ A Python-based heart rate monitoring application with comprehensive Heart Rate V
 The Heart Rate Monitor supports three monitoring methods:
 
 ### 1. Simulated Mode (Default) - With HRV
+
 ```bash
 python main.py --method simulate
 ```
+
 Generates realistic heart rate data with physiological variability including:
+
 - Respiratory Sinus Arrhythmia (RSA)
 - Autonomic nervous system fluctuations
 - Random physiological changes
 
 ### 2. Webcam Mode
+
 ```bash
 python main.py --method webcam
 ```
+
 Note: Requires a webcam and good lighting. Uses face detection and photoplethysmography.
 
 ### 3. Manual Input Mode
+
 ```bash
 python main.py --method manual
 ```
+
 Allows manual entry of heart rate values for testing and analysis.
 
 ### Command-line Options
@@ -67,6 +78,7 @@ Allows manual entry of heart rate values for testing and analysis.
 The application calculates comprehensive HRV metrics from R-R intervals:
 
 ### Time-Domain Metrics
+
 - **SDNN** (Standard Deviation of NN Intervals): Measures overall HRV
   - Normal range: 100-200ms for healthy adults
   - Higher values indicate better cardiovascular health
@@ -76,12 +88,14 @@ The application calculates comprehensive HRV metrics from R-R intervals:
   - Indicates autonomic nervous system flexibility
 
 ### Real-time Analysis
+
 - HRV metrics calculated and displayed during monitoring
 - Visual representation with heart rate zones
 - Statistical summary with distribution analysis
 - Professional-grade visualization suitable for research
 
 ### Example Usage
+
 ```bash
 # Run 30-second HRV analysis
 uv run python main.py --method simulate --duration 30
@@ -115,8 +129,9 @@ jupyter notebook heart_rate_demo.ipynb
 ## Output and Visualization
 
 The application generates:
+
 - **Real-time heart rate plot** with time series data
-- **Heart rate distribution histogram** 
+- **Heart rate distribution histogram**
 - **HRV metrics display** with SDNN, RMSSD, and pNN50
 - **Heart rate zones** (Resting, Fat Burn, Cardio, Peak)
 - **Statistical summary** with averages and ranges
